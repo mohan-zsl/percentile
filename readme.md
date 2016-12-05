@@ -5,17 +5,15 @@
 Run the Percentile Application
 - Directly download the code from Git in C:/wamp/www/percentile folder
 - Open the file "C:/wamp/bin/apache/apache2.4.9/conf/httpd.conf" and Remove the #(number) symbol in the line virtual host is enable "Include conf/extra/httpd-vhosts.conf"
-- Create a Virtual Host inside the C:/wamp/bin/apache/apache2.4.9/conf/extra/httpd-vhosts.conf file, add the below code at the end
+- Create a Virtual Host inside the C:/wamp/bin/apache/apache2.4.9/conf/extra/httpd-vhosts.conf file, create a new Virtual Host block and place the below code inside it.
 
-<VirtualHost *:80>
     ServerAdmin mohan.istq@gmail.com
     DocumentRoot "C:/wamp/www/percentile/public"
     ServerName dev.percentile.com
     CustomLog "logs/mysite-access.log" common
-</VirtualHost>
 
 - Add the text "127.0.0.1 dev.percentile.com" at the end of the file C:/Windows/System32/drivers/etc/hosts.
-- So your virtual host is ready.
+- Now, your virtual host is ready.
 
 - Resart your wamp server
 - In the browser, provide the link "dev.percentile.com", if you have followed all the steps properly then youll be seeing a working laravel application
