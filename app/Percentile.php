@@ -43,15 +43,30 @@ class Percentile
 	*/
 	public function getCsvContent()
 	{
-		//open the file only for reading
-		$file_handle = @fopen($this->fileName ,"r");
-		//check the opened file value and reads the contents
-		while(! feof($file_handle))
+		//try block error if the file does not exists
+		try
 		{
-			$this->arrContent[] = fgetcsv($file_handle);
+			//open the file only for reading
+			$file_handle = @fopen($this->fileName ,"r");
+			if (!$file_handle)
+			{
+				//insert into log file
+				\Log::info('Failed to open uploaded file');
+				return false;
+			}
+			//check the opened file value and reads the contents
+			while(! feof($file_handle))
+			{
+				$this->arrContent[] = fgetcsv($file_handle);
+			}
+			fclose($file_handle);
+			return $this->arrContent;
 		}
-		fclose($file_handle);
-		return $this->arrContent;
+		catch (Exception $e)
+		{
+			//insert into log file
+			\Log::info('Failed to open uploaded file');
+		}
 	}
 	
 	/**

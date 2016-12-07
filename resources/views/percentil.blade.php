@@ -19,6 +19,7 @@
 			<tr>
 				<th>ID</th><th>Name</th><th>GPA</th><th>Percentil Rank</th>
 			</tr>
+			@if($data)
 			@foreach($data as $key => $value)
 			<tr>
 				<td align="center">{{$value['id']}}</td>
@@ -27,6 +28,9 @@
 				<td align="center">{{$value['rank']}}</td>
 			</tr>
 			@endforeach
+			@else
+			<tr><td colspan="4"><center>No result found</center></td></tr>
+			@endif
 		</table>
     </body>
 </html>
