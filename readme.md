@@ -19,7 +19,12 @@ Run the Percentile Application
 - In the browser, provide the link "dev.percentile.com", if you have followed all the steps properly then youll be seeing a working laravel application
 - To test our application provide the link "dev.percentile.com/percentile" which displays all ID, Name, GPA and Percentile Rank in table format.
 
-To unit test the application
+Application description
+- All the controller activities is done in the file "C:/wamp/www/percentile/app/Http/Controllers/PercentileController.php"
+- All the model (database and logical operation) activities is done in the file "C:/wamp/www/percentile/app/Http/Percentile.php"
+- All the view activities is done in the file "C:/wamp/www/percentile/resources/views/percentil.blade.php"
+
+To Unit Test the application
 - Laravel by default installs the PHPUnit folder which is used to test by values getting from the expected value
 - In the command prompt provide the command "cd C:/wamp/www/percentile" 
 - Then run the command "phpunit". You can see the list of tests, assertions and failures

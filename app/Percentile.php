@@ -1,47 +1,48 @@
 <?php
 namespace App;
 
+/**
+* @desc Model class to do all database and logical operations
+*/
 class Percentile
 {
     /**
-* @var array
-*/
-	protected $fileName;
+	* @var initailize the array and default value to properties
+	*/
 	protected $arrContent = array();
 	protected $idVal = array();
+	protected $fileNameVal;
 	protected $lessVal;
 	protected $sameVal;
 	protected $totalVal;
 	protected $prVal;
 
     /**
-* Construct the box with the given items.
-*
-* @param array $items
-*/
-    public function __construct($fileName)
+	* @desc construct which assigns the default filename
+	* @param fileNameVal
+	*/
+    function __construct($fileNameVal)
     {
-        $this->fileName = $fileName;
+        $this->fileName = $fileNameVal;
     }
-	
-	public function getPercentileRank()
-	{
-		$this->arrContent = $this->getCsvContent();
-		$data = $this->completPreVal();
-        return $data[0]['rank'];
-	}	
 
 	/**
-	*	@desc stores all the ID Values with caluclated value
-	**/
-	public function completPreVal(){
+	* @desc stores all the ID Values with caluclated value
+	*/
+	public function completPreVal()
+	{
+		$this->getCsvContent();
 		foreach($this->arrContent as $key=>$value){
-			$idVal[] = $this->originalIdVal($value);
+			$this->idVal[] = $this->originalIdVal($value);
 		}
-		return $idVal;
+		return $this->idVal;
 	}
-	
-	public function getCsvContent(){
+
+	/**
+	* @desc fetchs all the csv file contents
+	*/
+	public function getCsvContent()
+	{
 		//open the file only for reading
 		$file_handle = @fopen($this->fileName ,"r");
 		//check the opened file value and reads the contents
@@ -56,8 +57,9 @@ class Percentile
 	/**
 	*	@desc fetch the current id value and send the precentile calculated value in array
 	*	@param sameValue array of fetch the current id value
-	**/
-	public function originalIdVal($sameValue){
+	*/
+	public function originalIdVal($sameValue)
+	{
 		//initializing value
 		$sameVal = $sameValue[2];
 		$lessCount = 0;
@@ -88,13 +90,51 @@ class Percentile
 
 	/**
 	*	@desc calculates and generates the result based on the input supplied
-	**/
+	*/
 	public function precentileCalc(){
 		$lessNum = 0.5*($this->sameVal);
 		$addNum = $this->lessVal+$lessNum;
-		$this->prVal = ((($addNum)/$this->totalVal)/100)*10000;
+		$this->prVal = ((($addNum)/$this->totalVal))*100;
 		return $this->prVal;
 	}
 
+	/**
+	* @desc  test case 1
+	* @desc  fetchs the compelete ranks and assign to first rank value
+	*/
+	public function getFileExtenstion()
+	{
+		$fileExtention = explode(".",$this->fileName);
+        return $fileExtention[1];
+	}
 
+	/**
+	* @desc  test case 1
+	* @desc  fetchs the compelete ranks and assign to first rank value
+	*/
+	public function getFirstPercentileRank()
+	{
+		$data = $this->completPreVal();
+        return $data[0]['rank'];
+	}
+
+    /**
+	* @desc  test case 2
+	* @desc  fetchs the compelete ranks and assign to first rank value
+	*/
+	public function getSecondPercentileRank()
+	{
+		$data = $this->completPreVal();
+        return $data[1]['rank'];
+	}
+
+    /**
+	* @desc  test case 3
+	* @desc  fetchs the compelete ranks and assign to first rank value
+	*/
+	public function getThirdPercentileRank()
+	{
+		$data = $this->completPreVal();
+        return $data[2]['rank'];
+	}
 }
