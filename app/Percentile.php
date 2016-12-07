@@ -1,5 +1,6 @@
 <?php
 namespace App;
+use App\Exceptions;
 
 /**
 * @desc Model class to do all database and logical operations
@@ -50,7 +51,7 @@ class Percentile
 			$file_handle = @fopen($this->fileName ,"r");
 			if (!$file_handle)
 			{
-				//insert into log file
+				//insert into log file if file is unable to load
 				\Log::info('Failed to open uploaded file');
 				return false;
 			}
