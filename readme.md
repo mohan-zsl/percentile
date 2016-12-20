@@ -28,7 +28,7 @@ To Unit Test the application
 - Laravel by default installs the PHPUnit folder which is used to test by values getting from the expected value
 - In the command prompt provide the command "cd C:/wamp/www/percentile" 
 - Then run the command "phpunit". You can see the list of tests, assertions and failures
-- To view the failure, kindly change the value in the file "C:/wamp/www/percentile/tests/PercentilTest.php" on the line 14 change the excepted value. Then you can find the failure results.
+- To view the failure, kindly change the value in the file "C:/wamp/www/percentile/tests/PercentilTest.php" on the line 36, 45, 54 and 63 change the excepted value. Then you can find the failure results.
 
 
 Steps followed to Install and Run Percentile Appication

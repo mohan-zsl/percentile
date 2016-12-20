@@ -116,7 +116,7 @@ class Percentile
 
 	/**
 	* @desc  test case 1
-	* @desc  fetchs the compelete ranks and assign to first rank value
+	* @desc  fetchs the file name and returns the file extension
 	*/
 	public function getFileExtenstion()
 	{
@@ -125,8 +125,8 @@ class Percentile
 	}
 
 	/**
-	* @desc  test case 1
-	* @desc  fetchs the compelete ranks and assign to first rank value
+	* @desc  test case 2
+	* @desc  fetchs the compelete ranks and returns the Randy Perez's rank value
 	*/
 	public function getFirstPercentileRank()
 	{
@@ -135,8 +135,8 @@ class Percentile
 	}
 
     /**
-	* @desc  test case 2
-	* @desc  fetchs the compelete ranks and assign to first rank value
+	* @desc  test case 3
+	* @desc  fetchs the compelete ranks and returns the Alice Brown's rank value
 	*/
 	public function getSecondPercentileRank()
 	{
@@ -145,8 +145,8 @@ class Percentile
 	}
 
     /**
-	* @desc  test case 3
-	* @desc  fetchs the compelete ranks and assign to first rank value
+	* @desc  test case 4
+	* @desc  fetchs the compelete ranks and returns the Maria Russel's rank value
 	*/
 	public function getThirdPercentileRank()
 	{

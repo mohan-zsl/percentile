@@ -29,34 +29,38 @@ class PercentilTest extends TestCase
     }
 
 	/**
-	* @desc checks whether extension is csv or not
+	* @desc checks whether file extension is csv or not
 	*/
 	public function testFileExtentsion()
     {
-        $this->assertEquals("csv",$this->percentile->getFileExtenstion());
+		$exceptedResult = 'csv';//check file extenstion
+        $this->assertEquals($exceptedResult,$this->percentile->getFileExtenstion());
     }
 	
 	/**
-	* @desc checks whether excepted value and result of first rank is same
+	* @desc checks whether excepted value and result of Randy Perez's rank is same
 	*/
 	public function testFirstRank()
     {
-        $this->assertEquals(2,$this->percentile->getFirstPercentileRank());
+		$exceptedResult = 2;//Randy Perez's rank
+        $this->assertEquals($exceptedResult,$this->percentile->getFirstPercentileRank());
     }
 
 	/**
-	* @desc checks whether excepted value and result of second rank is same
+	* @desc checks whether excepted value and result of Alice Brown's rank is same
 	*/
 	public function testSecondRank()
     {
-        $this->assertEquals(58,$this->percentile->getSecondPercentileRank());
+		$exceptedResult = 58;//Alice Brown's rank
+        $this->assertEquals($exceptedResult,$this->percentile->getSecondPercentileRank());
     }
 
 	/**
-	* @desc checks whether excepted value and result of third rank is same
+	* @desc checks whether excepted value and result of Maria Russel's rank is same
 	*/
 	public function testThirdRank()
     {
-        $this->assertEquals(98,$this->percentile->getThirdPercentileRank());
+		$exceptedResult = 98;//Maria Russel's rank
+        $this->assertEquals($exceptedResult,$this->percentile->getThirdPercentileRank());
     }
 }
